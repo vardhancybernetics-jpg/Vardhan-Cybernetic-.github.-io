@@ -1,90 +1,64 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vardhan Cybernetics</title>
-
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: Arial;
   background: #07111f;
   color: white;
+}
+header {
+  background: #102944;
+  padding: 25px;
   text-align: center;
 }
-
-header {
-  padding: 25px;
-  background: #101f35;
-}
-
-header h1 {
-  color: #00eaff;
-  font-size: 30px;
-}
-
+h1 {color: #00eaff;}
 nav {
+  background: #183653;
   padding: 15px;
-  background: #152a45;
+  text-align: center;
 }
-
 nav a {
   color: white;
-  margin: 12px;
+  margin: 10px;
   text-decoration: none;
 }
-
 .hero {
-  padding: 90px 20px;
+  padding: 70px 15px;
+  text-align: center;
 }
-
-.hero h2 {
-  color: #00eaff;
-  font-size: 38px;
+h2 {color: #00eaff;}
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 15px;
+  padding: 20px;
 }
-
-.hero p {
-  margin: 20px;
-  font-size: 18px;
-}
-
-.btn {
-  display: inline-block;
-  background: #00cfff;
-  color: #07111f;
-  padding: 13px 25px;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-section {
-  padding: 45px 20px;
-}
-
 .card {
   background: #142944;
-  margin: 15px auto;
-  padding: 25px;
-  max-width: 500px;
+  padding: 15px;
+  text-align: center;
   border-radius: 12px;
 }
-
-.card h3 {
-  color: #00eaff;
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  background: white;
 }
-
+button {
+  background: #00eaff;
+  border: none;
+  padding: 12px;
+  border-radius: 7px;
+}
 footer {
-  background: #101f35;
+  background: #102944;
+  text-align: center;
   padding: 20px;
-  color: #aaa;
 }
 </style>
 </head>
@@ -92,57 +66,80 @@ footer {
 <body>
 
 <header>
-  <h1>VARDHAN CYBERNETICS</h1>
-  <p>Future of Robotics & Electronics</p>
+<h1>VARDHAN CYBERNETICS</h1>
+<p>Robotics | Electronics | Innovation</p>
 </header>
 
 <nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
+<a href="#home">Home</a>
+<a href="#inventions">Inventions</a>
+<a href="#shop">Shop</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <div class="hero" id="home">
-  <h2>WELCOME TO THE FUTURE</h2>
-  <p>Innovating Robotics, Electronics and Technology.</p>
-  <a href="#projects" class="btn">Explore Projects</a>
+<h2>WELCOME TO THE FUTURE</h2>
+<p>Discover Amazing Robotics and Electronics.</p>
 </div>
 
-<section id="about">
-  <h2>About Us</h2>
-  <div class="card">
-    <p>Vardhan Cybernetics is a technology project focused on robotics, electronics, automation and innovation.</p>
-  </div>
+<section id="inventions">
+<h2 align="center">🚀 Vardhan Inventions</h2>
+<div class="products">
+<div class="card">
+<img src="images/invention1.jpg">
+<h3>My Invention 1</h3>
+</div>
+<div class="card">
+<img src="images/invention2.jpg">
+<h3>My Invention 2</h3>
+</div>
+</div>
 </section>
 
-<section id="projects">
-  <h2>Our Projects</h2>
-
-  <div class="card">
-    <h3>🤖 Robotics</h3>
-    <p>Building smart robotic systems.</p>
-  </div>
-
-  <div class="card">
-    <h3>⚡ Electronics</h3>
-    <p>Exploring circuits and electronic systems.</p>
-  </div>
-
-  <div class="card">
-    <h3>💡 Innovation</h3>
-    <p>Creating new ideas for tomorrow.</p>
-  </div>
+<section id="shop">
+<h2 align="center">🛒 Electronics Store</h2>
+<div class="products" id="products"></div>
 </section>
 
 <section id="contact">
-  <h2>Contact</h2>
-  <p>Welcome to Vardhan Cybernetics!</p>
+<h2 align="center">Contact Us</h2>
+<p align="center">Vardhan Cybernetics</p>
 </section>
 
 <footer>
-  © 2026 Vardhan Cybernetics | All Rights Reserved
+© 2026 Vardhan Cybernetics
 </footer>
+
+<script>
+let items = [
+["Arduino UNO",450],
+["ESP32",350],
+["Servo Motor",150],
+["DC Motor",80],
+["Ultrasonic Sensor",100],
+["Breadboard",90],
+["LED",50],
+["Jumper Wires",60],
+["Battery",200],
+["Robotics Kit",999]
+];
+
+let html = "";
+
+items.forEach((item,i) => {
+html += `
+<div class="card">
+<img src="https://placehold.co/250x150?text=${encodeURIComponent(item[0])}">
+<h3>${item[0]}</h3>
+<p>₹${item[1]}</p>
+<button onclick="alert('Added ${item[0]} to cart')">
+Add to Cart
+</button>
+</div>`;
+});
+
+document.getElementById("products").innerHTML = html;
+</script>
 
 </body>
 </html>
